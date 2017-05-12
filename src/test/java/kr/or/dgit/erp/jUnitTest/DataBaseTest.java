@@ -1,4 +1,4 @@
-package kr.or.dgit.erp.DataBaseTest;
+package kr.or.dgit.erp.jUnitTest;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

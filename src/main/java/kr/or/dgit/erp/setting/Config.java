@@ -16,7 +16,8 @@ public class Config {
 			"CREATE TABLE title ("
 			+ "tcode INT(11)     NOT NULL, "
 			+ "tname VARCHAR(10) null, "
-			+ "PRIMARY KEY (tcode))",			
+			+ "PRIMARY KEY (tcode))",
+			
 			/* 부서 */
 			"CREATE TABLE department ("
 			+ "dcode INT(11)  NOT NULL, "

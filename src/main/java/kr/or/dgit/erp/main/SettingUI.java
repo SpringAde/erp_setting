@@ -14,9 +14,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class DBManagerMenu extends JFrame implements ActionListener {
-
-	private JPanel contentPane;
+public class SettingUI extends JFrame implements ActionListener {
 	private JButton btnInit;
 	private JButton btnBackup;
 	private JButton btnRestore;
@@ -25,8 +23,8 @@ public class DBManagerMenu extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DBManagerMenu frame = new DBManagerMenu();
-					frame.setVisible(true);
+					SettingUI settingUI = new SettingUI();
+					settingUI.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -34,14 +32,14 @@ public class DBManagerMenu extends JFrame implements ActionListener {
 		});
 	}
 
-	public DBManagerMenu() {
+	public SettingUI() {
 		setTitle("DB관리메뉴");
-		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-		setBounds(100, 100, 487, 118);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(10, 10, 10, 10));
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 535, 135);
+		JPanel contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(20, 20, 20, 20));
 		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(1, 0, 10, 0));
+		contentPane.setLayout(new GridLayout(1, 0, 20, 0));
 		
 		btnInit = new JButton("초기화");
 		btnInit.addActionListener(this);
@@ -67,16 +65,16 @@ public class DBManagerMenu extends JFrame implements ActionListener {
 			actionPerformedBtnInit(e);
 		}
 	}
-	protected void actionPerformedBtnInit(ActionEvent e) {
+	protected void actionPerformedBtnInit(ActionEvent e) {		
 		InitSettingService init = new InitSettingService();
-		init.initSetting();
+		init.initSetting();	//초기화
 	}
 	protected void actionPerformedBtnBackup(ActionEvent e) {
 		InitSettingService init = new InitSettingService();
-		init.backUp();
+		init.backUp();		//백업
 	}
 	protected void actionPerformedBtnRestore(ActionEvent e) {
 		InitSettingService init = new InitSettingService();
-		init.restore();
+		init.restore();		//복원
 	}
 }
